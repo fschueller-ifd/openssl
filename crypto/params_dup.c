@@ -194,7 +194,6 @@ OSSL_PARAM *OSSL_PARAM_merge(const OSSL_PARAM *p1, const OSSL_PARAM *p2)
                 *dst++ = **p2cur;
                 p2cur++;
             }
-
             break;
         }
         /* If list2 is finished just tack list1 onto the end */
