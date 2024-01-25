@@ -321,12 +321,12 @@ int ecparam_main(int argc, char **argv)
          *    gctx = EVP_PKEY_CTX_new_from_name(NULL, "EC", NULL);
          *    EVP_PKEY_keygen_init(gctx);
          *    EVP_PKEY_CTX_set_group_name(gctx, curvename);
-         *    EVP_PKEY_keygen(gctx, &key) <= 0)
+         *    EVP_PKEY_generate(gctx, &key) <= 0)
          */
         gctx_key = EVP_PKEY_CTX_new_from_pkey(app_get0_libctx(), params_key,
                                               app_get0_propq());
         if (EVP_PKEY_keygen_init(gctx_key) <= 0
-            || EVP_PKEY_keygen(gctx_key, &key) <= 0) {
+            || EVP_PKEY_generate(gctx_key, &key) <= 0) {
             BIO_printf(bio_err, "unable to generate key\n");
             goto end;
         }
