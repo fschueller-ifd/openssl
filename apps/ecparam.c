@@ -235,9 +235,9 @@ int ecparam_main(int argc, char **argv)
             gctx_params = EVP_PKEY_CTX_new_from_name(app_get0_libctx(), "ec",
                                                      app_get0_propq());
         if (gctx_params == NULL
-            || EVP_PKEY_keygen_init(gctx_params) <= 0
+            || EVP_PKEY_paramgen_init(gctx_params) <= 0
             || EVP_PKEY_CTX_set_params(gctx_params, params) <= 0
-            || EVP_PKEY_keygen(gctx_params, &params_key) <= 0) {
+            || EVP_PKEY_generate(gctx_params, &params_key) <= 0) {
             BIO_printf(bio_err, "unable to generate key\n");
             goto end;
         }
